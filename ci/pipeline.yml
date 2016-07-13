@@ -1,0 +1,21 @@
+---
+resources:
+- name: resource-build
+  type: git
+  source:
+    uri: https://github.com/rwinch/concourse-gradle-sample.git
+
+jobs:
+- name: job-build
+  public: true
+  plan:
+  - get: resource-build
+  - task: build
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: busybox}
+      run:
+        path: ./resource-build/gradlew
+        args: [build]
