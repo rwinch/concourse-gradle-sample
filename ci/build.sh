@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export TERM=${TERM:-dumb}
-../gradlew --no-daemon build
+resource-tutorial/gradlew --no-daemon build
