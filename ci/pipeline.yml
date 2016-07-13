@@ -1,23 +1,15 @@
 ---
 resources:
-- name: resource-build
+- name: resource-tutorial
   type: git
   source:
     uri: https://github.com/rwinch/concourse-gradle-sample.git
 
 jobs:
-- name: job-build
+- name: job-test-app
   public: true
   plan:
-  - get: resource-build
-  - task: build
-    inputs:
-      - name: resource-build
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source: {repository: busybox}
-      run:
-        path: ls
-        args: [resource-build]
+  - get: resource-tutorial
+    trigger: true
+  - task: web-app-tests
+    file: resource-tutorial/ci/build.yml
