@@ -17,5 +17,5 @@ jobs:
         type: docker-image
         source: {repository: busybox}
       run:
-        path: ./resource-build/gradlew
-        args: [build]
+        path: ls
+        args: [-l]
