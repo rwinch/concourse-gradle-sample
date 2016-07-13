@@ -9,5 +9,7 @@ inputs:
 - name: resource-tutorial
 
 run:
+  path: ENV TERM dumb
+run:
   path: resource-tutorial/gradlew
   args: [--no-daemon build]
