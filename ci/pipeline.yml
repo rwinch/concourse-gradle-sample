@@ -11,6 +11,8 @@ jobs:
   plan:
   - get: resource-build
   - task: build
+    inputs:
+      - name: resource-build
     config:
       platform: linux
       image_resource:
@@ -18,4 +20,4 @@ jobs:
         source: {repository: busybox}
       run:
         path: ls
-        args: [-l]
+        args: [resource-build]
