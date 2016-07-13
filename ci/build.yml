@@ -10,3 +10,4 @@ inputs:
 
 run:
   path: resource-tutorial/gradlew
+  args: [--no-daemon build]
