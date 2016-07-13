@@ -10,4 +10,3 @@ inputs:
 
 run:
   path: resource-tutorial/gradlew
-  args: [build]
